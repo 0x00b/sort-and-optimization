@@ -1,4 +1,5 @@
 
+#include "bublesort.h"
 /*
 简单冒泡排序
 */
@@ -48,7 +49,7 @@ void Buble2(int a[], int n)
 	assert(NULL != a && n > 1);
 	int high = n - 1;
 	int low = 0;
-	int i, j;
+	int i=0, j=0;
 	while (low < high)
 	{
 		//找到最大的。

@@ -1,25 +1,7 @@
-
-
-#if 0
-
-inline void swap(int& a, int& b)
-{
-	int c = a;
-	a = b;
-	b = c;
-}
-#else
-//
-inline void swap(int& a, int& b)
-{
-	if (a != b)
-	{
-		a = a^b;
-		b = a^b;
-		a = a^b;
-	}
-}
-#endif
+#include "bublesort.h"
+#include "choosesort.h"
+#include "insertsort.h"
+#include "quiksort.h"
 
 
 /*
@@ -146,6 +128,10 @@ int main()
 	//qsort(a, len, 4, comp);
 	printf("\n排序后：\n");	Print(a, len);
 #endif
-	_getch();
+
+#if defined(_WIN)
+	return system("pause");
+#else
 	return 0;
+#endif
 }

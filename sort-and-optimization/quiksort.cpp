@@ -1,25 +1,4 @@
-
-#if 0
-
-inline void swap(int& a, int& b)
-{
-	int c = a;
-	a = b;
-	b = c;
-}
-#else
-//
-inline void swap(int& a, int& b)
-{
-	if (a != b)
-	{
-		a = a^b;
-		b = a^b;
-		a = a^b;
-	}
-}
-#endif
-
+#include "quiksort.h"
 
 /*
 快速排序
@@ -83,7 +62,6 @@ void QuikSort1(int a[], int n)
 	int i, j, temp;
 	if (n <= 7)
 	{
-		//个数小于7则插排
 		for ( i = 1; i < n; i++)
 		{
 			temp = a[i];
@@ -97,13 +75,11 @@ void QuikSort1(int a[], int n)
 	}
 	else if ( n <= 40 )
 	{
-		//三数取中
 		int mid = GetMidNumPos(a, 0, n >> 1, n - 1);
 		temp = a[mid];
 	}
 	else
 	{
-		//9数取中
 		int mid, mid1, mid2, mid3;
 		mid1 = GetMidNumPos(a, 0, 1, 2);
 		mid2 = GetMidNumPos(a, n >> 1 - 1, n >> 1, n >> 1 + 1);
@@ -191,12 +167,11 @@ void QuikSort2(int arr[], int len)
 		}
 		else if (n <= 40)
 		{
-			mid = GetMidNumPos(a, 0, n >> 1, n - 1);
+			mid = GetMidNumPos(a, 0, n>>1, n - 1);
 			temp = a[mid];
 		}
 		else
 		{
-			//数组分成三个区间，三个区间的中位数的中位数作为枢轴
 			int num1 = n >> 2;
 			int num2 = n >> 1;
 			mid1 = GetMidNumPos(a, 0, num1 >> 1, num1 - 1);
