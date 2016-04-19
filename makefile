@@ -9,5 +9,8 @@ objs = $(shell ls ./sort-and-optimization | grep .cpp|xargs)
 
 main:$(objs)
 	g++  $^ -o $@
-%.o:%.cpp
-	g++ -c $< -o $@	
+
+.PHONY:clean
+
+clean:
+	rm main
