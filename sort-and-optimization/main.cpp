@@ -3,16 +3,26 @@
 #include "insertsort.h"
 #include "quiksort.h"
 
-
+int Now()
+{
+#if defined(_WIN)
+	return GetTickCount();
+#else
+	struct timeval tv;
+	struct timezone tz;
+	gettimeofday(&tv, &tz);
+	return tv.tv_sec;
+#endif
+}
 /*
 *获取一段代码（func）执行的时间
 */
 #define GetTm(func, t)				\
 do{									\
 	DWORD t1, t2;					\
-	t1 = GetTickCount();			\
+	t1 = Now();			\
 	func;							\
-	t2 = GetTickCount();			\
+	t2 = Now();				\
 	t = (t2 - t1);					\
 }while(0)
 
@@ -47,7 +57,7 @@ void GetEqCnt(int a[], int n)
 {
 	int sum = 0;
 	int* pa = new int[n];
-	memset(pa,0x00,n*4);
+	memset(pa, 0x00, n*sizeof(int));
 	for (int i = 0; i < n; i++)
 	{
 		pa[a[i]]++;
@@ -103,7 +113,7 @@ int main()
 //		printf("\n2\n");
 		t = 0;
 		MessArr(a, len);
-		GetTm(QuikSort1(a, len), t);// printf("time:%d \n", t); //这个效率会更好。可能使第三种三木运算，比较耗时，，，
+		GetTm(QuikSort1(a, len), t);
 		t2 += t;
 
 //		printf("\n3\n");
