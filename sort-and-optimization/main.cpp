@@ -11,7 +11,7 @@ int Now()
 	struct timeval tv;
 	struct timezone tz;
 	gettimeofday(&tv, &tz);
-	return tv.tv_sec;
+	return tv.tv_usec;
 #endif
 }
 /*
@@ -19,7 +19,7 @@ int Now()
 */
 #define GetTm(func, t)				\
 do{									\
-	DWORD t1, t2;					\
+	int t1, t2;					\
 	t1 = Now();			\
 	func;							\
 	t2 = Now();				\
@@ -128,7 +128,7 @@ int main()
 
 //	printf("\n排序后：\n");	Print(pa);
 #else
-	Print(pa);
+	Print(a, len);
 	//MkRptArr(a,len);// Print(pa);
 	//QuikSort(a,len);
 	//printf("\n排序后：\n"); Print(a,len);

@@ -3,10 +3,9 @@
 
 #include <stdio.h>
 #include <assert.h>
-#include <time.h>
 #include <stdlib.h>
 #include <memory.h>
-
+#include <time.h>
 
 #if defined(_WIN32) || defined(_WIN64)
 #define _WIN
@@ -14,6 +13,8 @@
 
 #if defined(_WIN)
 #include <windows.h>
+#else
+#include <sys/time.h>
 #endif
 
 #if 0
