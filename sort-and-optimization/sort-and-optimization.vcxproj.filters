@@ -30,6 +30,9 @@
     <ClCompile Include="quiksort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="heapsort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bublesort.h">
@@ -45,6 +48,9 @@
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="quiksort.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="heapsort.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>

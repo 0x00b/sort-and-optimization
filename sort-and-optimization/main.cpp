@@ -2,6 +2,7 @@
 #include "choosesort.h"
 #include "insertsort.h"
 #include "quiksort.h"
+#include "heapsort.h"
 
 int Now()
 {
@@ -73,7 +74,7 @@ void GetEqCnt(int a[], int n)
 	printf("\nsum:%d\n",sum);
 }
 
-#define len		20000
+#define len		10
 
 int comp(const void* a, const void* b)
 {
@@ -101,7 +102,7 @@ int main()
 //	Print(a,len);
 //	GetEqCnt(a,len);
 	int t1 = 0, t2 = 0, t3 = 0;
-	for (int i = 0; i < 150; i++)
+	//for (int i = 0; i < 150; i++)
 	{
 	/*	printf("\n1\n");
 		t = 0;
@@ -122,6 +123,10 @@ int main()
 		GetTm(QuikSort2(a, len), t);// printf("time:%d \n", t); 
 		t3 += t;
 //		printf("\n4\n");
+
+		MessArr(a, len);
+		HeapSort(a, len);
+		Print(a, len);
 	}
 	printf("\nt1=%d,t2=%d,t3=%d\n",t1,t2,t3);
 //	GetTm(qsort(a, len, 4, comp), t); printf("time:%d\n", t);	
